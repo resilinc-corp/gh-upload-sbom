@@ -193,7 +193,7 @@ try {
                             }
                           ]
                         }`;
-  core.info('SBOM content: ', fs.readFileSync(bomFilename).substring(0, 200));
+  core.info('SBOM content: ', fs.readFileSync(bomFilename, 'utf8').toString().substring(0, 200));
   let encodedBomContents = Buffer.from(bomContents).toString('base64');
   if (encodedBomContents.startsWith('77u/')) {
     encodedBomContents = encodedBomContents.substring(4);
