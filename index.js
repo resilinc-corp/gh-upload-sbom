@@ -83,9 +83,11 @@ try {
       'Content-Length': Buffer.byteLength(postData)
     }
   }
-  const optionsData = JSON.stringify(requestOptions);
 
-  core.info(`Uploading to Dependency-Track with API request options, payload: ${optionsData}, ${postData}`);
+  const payloadLog = postData.substring(0, 200);
+  const optionsLog = JSON.stringify(requestOptions);
+
+  core.info(`Uploading to Dependency-Track with API request options, payload: ${optionsLog}, ${payloadLog}`);
 
   const req = client.request(requestOptions, (res) => {
     core.info('Response status code:', res.statusCode);
