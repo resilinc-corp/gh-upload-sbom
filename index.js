@@ -51,7 +51,7 @@ try {
     bomPayload = {
       projectName: projectName,
       projectVersion: projectVersion,
-      projectTags: projectTags.map(tag => ({name: tag})),
+      // projectTags: projectTags.map(tag => ({name: tag})),
       autoCreate: autoCreate,
       bom: encodedBomContents
     }
@@ -94,7 +94,7 @@ try {
     if (res.statusCode >= 200 && res.statusCode < 300) {
       core.info('Finished uploading BOM to Dependency-Track server.')
     } else {
-      core.setFailed('Failed response status code:' + res.statusCode);
+      core.setFailed('Failed Response:' + JSON.stringify(res.data));
     }
   });
 
