@@ -40,7 +40,160 @@ try {
   }
 
   core.info(`Reading BOM: ${bomFilename}...`);
-  const bomContents = fs.readFileSync(bomFilename);
+  const bomContents = `{
+                          "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+                          "bomFormat": "CycloneDX",
+                          "specVersion": "1.6",
+                          "serialNumber": "urn:uuid:560dcd32-5307-4ce3-933b-7fe5bebeaffe",
+                          "version": 1,
+                          "metadata": {
+                            "timestamp": "2024-08-12T17:02:51+05:30",
+                            "tools": {
+                              "components": [
+                                {
+                                  "type": "application",
+                                  "author": "anchore",
+                                  "name": "syft",
+                                  "version": "1.10.0"
+                                }
+                              ]
+                            },
+                            "component": {
+                              "bom-ref": "bf6d480f1ba7ed47",
+                              "type": "file",
+                              "name": "resilinc-ruleengine"
+                            }
+                          },
+                          "components": [
+                            {
+                              "bom-ref": "pkg:maven/org.aspectj.weaver/aspectj-weaver@1.9.22.1?package-id=5dba4d178467552f",
+                              "type": "library",
+                              "name": "aspectj-weaver",
+                              "version": "1.9.22.1",
+                              "cpe": "cpe:2.3:a:https\\:\\/\\/www-eclipse-org\\/aspectj\\/:aspectj-weaver:1.9.22.1:*:*:*:*:*:*:*",
+                              "purl": "pkg:maven/org.aspectj.weaver/aspectj-weaver@1.9.22.1",
+                              "externalReferences": [
+                                {
+                                  "url": "",
+                                  "hashes": [
+                                    {
+                                      "alg": "SHA-1",
+                                      "content": "bca243d0af0db4758fbae45c5f4995cb5dabb612"
+                                    }
+                                  ],
+                                  "type": "build-meta"
+                                }
+                              ],
+                              "properties": [
+                                {
+                                  "name": "syft:package:foundBy",
+                                  "value": "java-archive-cataloger"
+                                },
+                                {
+                                  "name": "syft:package:language",
+                                  "value": "java"
+                                },
+                                {
+                                  "name": "syft:package:type",
+                                  "value": "java-archive"
+                                },
+                                {
+                                  "name": "syft:package:metadataType",
+                                  "value": "java-archive"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:https\\:\\/\\/www-eclipse-org\\/aspectj\\/:aspectj_weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:https\\:\\/\\/www_eclipse_org\\/aspectj\\/:aspectj-weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:https\\:\\/\\/www_eclipse_org\\/aspectj\\/:aspectj_weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:https\\:\\/\\/www-eclipse-org\\/aspectj\\/:weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:https\\:\\/\\/www_eclipse_org\\/aspectj\\/:weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:org.aspectj.weaver:aspectj-weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:org.aspectj.weaver:aspectj_weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj-weaver:aspectj-weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj-weaver:aspectj_weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj_weaver:aspectj-weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj_weaver:aspectj_weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:org.aspectj.weaver:weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj:aspectj-weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj:aspectj_weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj-weaver:weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj_weaver:weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:weaver:aspectj-weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:weaver:aspectj_weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:aspectj:weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:cpe23",
+                                  "value": "cpe:2.3:a:weaver:weaver:1.9.22.1:*:*:*:*:*:*:*"
+                                },
+                                {
+                                  "name": "syft:location:0:path",
+                                  "value": "/aspectj-weaver.jar"
+                                },
+                                {
+                                  "name": "syft:metadata:virtualPath",
+                                  "value": "/aspectj-weaver.jar"
+                                }
+                              ]
+                            }
+                          ]
+                        }`;
+  core.info('SBOM content: ', fs.readFileSync(bomFilename).subsctring(0, 200));
   let encodedBomContents = Buffer.from(bomContents).toString('base64');
   if (encodedBomContents.startsWith('77u/')) {
     encodedBomContents = encodedBomContents.substring(4);
@@ -94,7 +247,7 @@ try {
     if (res.statusCode >= 200 && res.statusCode < 300) {
       core.info('Finished uploading BOM to Dependency-Track server.')
     } else {
-      core.setFailed('Failed Response:' + JSON.stringify(res.data));
+      core.setFailed('Failed Response:', JSON.stringify(res.statusCode));
     }
   });
 
