@@ -7,8 +7,13 @@ process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 try {
 
-  core.info('Starting SBOM upload to Depdency-Track API Backend');
+  const bomFile = core.getInput('bom');
+  core.info('Security Analysis will be started with SBOM: ' + bomFile);
+  
+  const bomContents = fs.readFileSync(bomFile, 'utf8').toString().substring(0, 200);
+  core.info('SBOM is available to be uploaded with Contents: ' + bomContents);
 
+  core.info('Starting SBOM upload to Dependency-Track API Backend');
   const multipartForm = new FormData();
 
   multipartForm.append('projectName', core.getInput('projectname'));
@@ -25,11 +30,11 @@ try {
   })
   .then(response => {
   
-    core.info('Upload successful:', response.data);
+    core.info('SBOM upload has been successful:', response.data);
   })
   .catch(error => {
   
-    core.error('Error uploading:', error);
+    core.error('Error while uploading SBOM:', error);
   });
 } catch (error) {
 
