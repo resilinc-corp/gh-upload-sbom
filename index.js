@@ -7,7 +7,7 @@ process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 try {
 
-  const bomFile = core.getInput('bom');
+  const bomFile = core.getInput('bomfile');
   core.info('Security Analysis will be started with SBOM: ',  bomFile);
   
   const bomContents = fs.readFileSync(bomFile, 'utf8').toString().substring(0, 200);
@@ -20,7 +20,7 @@ try {
   multipartForm.append('projectVersion', core.getInput('projectversion'));
   multipartForm.append('autoCreate', 'true');
 
-  multipartForm.append('bom', fs.createReadStream(core.getInput('bom')));
+  multipartForm.append('bom', fs.createReadStream(bomFile));
 
   axios.post(core.getInput('apidomain') + '/api/v1/bom', multipartForm, {
   headers: {
